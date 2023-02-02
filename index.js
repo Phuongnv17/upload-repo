@@ -19,9 +19,7 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/*.*", (req, res, next) => {
-    const found = /([^\/]*\.*)$/.exec(req.path);
-    console.log(found)
-    res.sendFile(path.join(__dirname+'/public/'+ found[1]));
+    res.sendFile(path.join(__dirname+'/public/'+ req.path));
 });
 
 
